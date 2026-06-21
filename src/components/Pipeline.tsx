@@ -65,7 +65,7 @@ export default function Process() {
   }, []);
 
   return (
-    <section ref={ref} className="relative py-28 overflow-hidden">
+    <section id="processo" ref={ref} className="relative py-28 overflow-hidden">
       <div className="absolute inset-0 bg-[#080808]" />
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#a78bfa]/20 to-transparent" />
       <div className="absolute left-1/4 top-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-[0.03]"
@@ -148,10 +148,10 @@ export default function Process() {
                 Primeiro protótipo em 48 horas. Sem burocracia.
               </div>
             </div>
-            <button className="px-6 py-3 rounded-xl font-bold text-sm text-[#080808] flex-shrink-0"
-                    style={{ background: 'linear-gradient(135deg, #00e5ff, #00b4d8)' }}>
+            <a href="#contato" className="px-6 py-3 rounded-xl font-bold text-sm text-[#080808] flex-shrink-0"
+               style={{ background: 'linear-gradient(135deg, #00e5ff, #00b4d8)' }}>
               Iniciar Projeto
-            </button>
+            </a>
           </div>
         </div>
       </div>

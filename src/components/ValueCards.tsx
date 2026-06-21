@@ -1,221 +1,59 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { ExternalLink, Tag } from 'lucide-react';
 
 /* ────────── Mini-website mockup renderers ────────── */
 
-function ModeStoreMockup() {
+function ProdutosBelezaMockup() {
   return (
-    <div className="w-full h-full flex flex-col bg-[#0a0a0a] text-white overflow-hidden">
-      {/* Top nav */}
-      <nav className="flex items-center justify-between px-4 py-2.5 border-b border-white/8 bg-[#0f0f0f]">
-        <span className="font-bold text-xs tracking-widest text-white">ÉLITE MODA</span>
-        <div className="flex gap-4 text-[9px] text-slate-400">
-          <span>Feminino</span><span>Masculino</span><span>Acessórios</span><span>Sale</span>
-        </div>
-        <div className="flex gap-2 text-[9px] text-slate-400 items-center">
-          <span>🔍</span><span>♡</span><span>🛍</span>
-        </div>
-      </nav>
-      {/* Hero banner */}
-      <div className="relative h-24 flex-shrink-0 overflow-hidden">
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)' }} />
-        <div className="absolute inset-0 flex items-center justify-between px-5">
-          <div>
-            <div className="text-[8px] text-slate-400 mb-0.5 tracking-widest">NOVA COLEÇÃO 2026</div>
-            <div className="font-bold text-sm text-white">Elegância<br />Redefinida</div>
-            <div className="mt-1.5 px-3 py-1 bg-white text-black text-[8px] font-bold rounded-full inline-block">
-              Ver Coleção
-            </div>
-          </div>
-          <div className="w-16 h-16 rounded-full"
-               style={{ background: 'radial-gradient(circle, rgba(255,182,193,0.3), rgba(200,100,150,0.2))' }} />
-        </div>
-      </div>
-      {/* Products grid */}
-      <div className="flex-1 p-3 overflow-hidden">
-        <div className="text-[8px] text-slate-400 mb-2 font-semibold tracking-wider">DESTAQUES</div>
-        <div className="grid grid-cols-3 gap-2">
-          {[
-            { name: 'Vestido Luxo', price: 'R$ 299', bg: 'from-rose-900/40 to-pink-900/30' },
-            { name: 'Blazer Premium', price: 'R$ 459', bg: 'from-slate-800 to-slate-700' },
-            { name: 'Bolsa Signature', price: 'R$ 599', bg: 'from-amber-900/40 to-yellow-900/30' },
-          ].map((p) => (
-            <div key={p.name} className="rounded-lg overflow-hidden">
-              <div className={`h-12 bg-gradient-to-br ${p.bg} flex items-center justify-center`}>
-                <div className="w-5 h-7 bg-white/10 rounded" />
-              </div>
-              <div className="p-1 bg-[#111]">
-                <div className="text-[7px] text-white font-medium truncate">{p.name}</div>
-                <div className="text-[7px] text-rose-400 font-bold">{p.price}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function AgroMockup() {
-  return (
-    <div className="w-full h-full flex bg-[#0d1a0d] overflow-hidden">
+    <div className="w-full h-full flex bg-[#fafafa] overflow-hidden">
       {/* Sidebar */}
-      <div className="w-28 flex-shrink-0 bg-[#0a150a] border-r border-white/5 flex flex-col">
-        <div className="p-3 border-b border-white/5">
-          <div className="text-[8px] font-black text-[#4ade80] tracking-wide">AGRO</div>
-          <div className="text-[7px] text-slate-500">MARKET</div>
+      <div className="w-28 flex-shrink-0 bg-white border-r border-pink-100 flex flex-col shadow-sm">
+        <div className="p-3 border-b border-pink-100">
+          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-pink-200 to-pink-300 mx-auto mb-2 flex items-center justify-center">
+            <span className="text-xl">👩</span>
+          </div>
+          <div className="text-[8px] font-black text-[#e83e8c] text-center tracking-wide">PRODUTOS</div>
+          <div className="text-[7px] text-[#e83e8c] text-center font-semibold">DE BELEZA</div>
         </div>
         <nav className="flex-1 py-2">
-          {['🌱 Sementes', '🧪 Defensivos', '🚜 Máquinas', '🌾 Grãos', '💧 Irrigação'].map((item) => (
-            <div key={item} className="px-3 py-1.5 text-[8px] text-slate-400 hover:text-white cursor-default flex items-center gap-1.5 first:bg-[#4ade80]/10 first:text-[#4ade80] first:border-r-2 first:border-[#4ade80]">
-              {item}
-            </div>
-          ))}
-        </nav>
-        <div className="p-2 border-t border-white/5">
-          <div className="px-2 py-1.5 bg-[#4ade80] rounded text-[7px] font-bold text-[#0a150a] text-center">
-            WhatsApp
-          </div>
-        </div>
-      </div>
-      {/* Content */}
-      <div className="flex-1 flex flex-col overflow-hidden">
-        <div className="px-3 py-2 bg-[#0f1f0f] border-b border-white/5 flex items-center justify-between">
-          <div className="text-[8px] text-slate-300 font-semibold">Sementes — Catálogo 2026</div>
-          <div className="flex gap-1">
-            <div className="px-2 py-0.5 bg-[#4ade80]/10 border border-[#4ade80]/20 rounded text-[7px] text-[#4ade80]">Filtrar</div>
-          </div>
-        </div>
-        <div className="flex-1 p-2 overflow-hidden">
-          <div className="grid grid-cols-2 gap-1.5">
-            {[
-              { name: 'Milho Híbrido XP', val: 'R$ 180/sc', badge: 'Top' },
-              { name: 'Soja RR Premium', val: 'R$ 220/sc', badge: 'Novo' },
-              { name: 'Sorgo BRS 310', val: 'R$ 95/sc', badge: '' },
-              { name: 'Feijão Carioca', val: 'R$ 145/sc', badge: 'Oferta' },
-            ].map((item) => (
-              <div key={item.name} className="p-1.5 bg-[#0f1f0f] rounded border border-white/4">
-                <div className="h-7 bg-gradient-to-br from-green-900/40 to-emerald-900/30 rounded mb-1 flex items-center justify-center">
-                  <span className="text-sm">🌱</span>
-                </div>
-                <div className="text-[7px] text-white font-medium leading-tight">{item.name}</div>
-                <div className="flex items-center justify-between mt-0.5">
-                  <span className="text-[7px] text-[#4ade80] font-bold">{item.val}</span>
-                  {item.badge && (
-                    <span className="text-[6px] px-1 py-0.5 bg-[#4ade80]/20 text-[#4ade80] rounded-full">{item.badge}</span>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function AdvocaciaMockup() {
-  return (
-    <div className="w-full h-full flex flex-col bg-[#08101e] overflow-hidden">
-      {/* Top nav */}
-      <nav className="px-4 py-2.5 border-b border-white/6 bg-[#0c1628] flex items-center justify-between">
-        <div>
-          <div className="text-[9px] font-black text-white tracking-wider">SILVA & ASSOCIADOS</div>
-          <div className="text-[7px] text-[#94a3b8] tracking-widest">ADVOCACIA</div>
-        </div>
-        <div className="flex gap-4 text-[8px] text-slate-400">
-          <span>Áreas</span><span>Equipe</span><span>Casos</span><span>Blog</span>
-        </div>
-        <div className="px-3 py-1 text-[8px] font-bold text-white rounded"
-             style={{ background: 'linear-gradient(135deg, #1e40af, #1d4ed8)' }}>
-          Consulta
-        </div>
-      </nav>
-      {/* Hero */}
-      <div className="relative px-5 py-4 flex-shrink-0"
-           style={{ background: 'linear-gradient(135deg, #0c1628, #0f2040)' }}>
-        <div className="text-[8px] text-[#60a5fa] mb-1 tracking-widest font-semibold">EXCELÊNCIA JURÍDICA DESDE 1998</div>
-        <div className="font-bold text-sm text-white leading-tight mb-2">Defendemos seus<br />direitos com<br /><span className="text-[#60a5fa]">rigor e dedicação</span></div>
-        <div className="flex gap-2">
-          <div className="px-2.5 py-1 text-[8px] font-bold text-white rounded"
-               style={{ background: '#1d4ed8' }}>
-            Fale Conosco
-          </div>
-          <div className="px-2.5 py-1 text-[8px] text-[#60a5fa] rounded border border-[#1d4ed8]/50">
-            Nossas Áreas
-          </div>
-        </div>
-      </div>
-      {/* Areas */}
-      <div className="flex-1 p-3 overflow-hidden">
-        <div className="text-[8px] text-slate-400 font-semibold mb-2 tracking-wider">ÁREAS DE ATUAÇÃO</div>
-        <div className="grid grid-cols-2 gap-1.5">
-          {['⚖️ Trabalhista', '🏠 Imobiliário', '💼 Empresarial', '👨‍👩‍👧 Família'].map((area) => (
-            <div key={area} className="px-2.5 py-2 bg-[#0c1628] border border-[#1d4ed8]/15 rounded text-[8px] text-slate-300 flex items-center gap-1.5">
-              {area}
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function DentistaMockup() {
-  return (
-    <div className="w-full h-full flex bg-[#f0f9ff] overflow-hidden">
-      {/* Sidebar */}
-      <div className="w-28 flex-shrink-0 bg-white border-r border-slate-100 flex flex-col shadow-sm">
-        <div className="p-3 border-b border-slate-100">
-          <div className="text-[8px] font-black text-[#0369a1]">✦ SORRIA</div>
-          <div className="text-[7px] text-slate-400">Odontologia</div>
-        </div>
-        <nav className="flex-1 py-2">
-          {['🦷 Clareamento', '🔧 Ortodontia', '❤️ Implante', '🌟 Estética', '📋 Consulta'].map((item, i) => (
+          {['💖 Perfumes', '✨ Skincare', '💇 Cabelos', '🧴 Cuidados Pessoais', '🧼 Sabonetes', '🌸 Desodorantes'].map((item, i) => (
             <div key={item} className={`px-3 py-1.5 text-[7.5px] cursor-default flex items-center gap-1 ${
-              i === 0 ? 'bg-[#0369a1]/8 text-[#0369a1] font-semibold border-l-2 border-[#0369a1]' : 'text-slate-500'
+              i === 0 ? 'bg-[#e83e8c]/10 text-[#e83e8c] font-semibold border-l-2 border-[#e83e8c]' : 'text-slate-500'
             }`}>
               {item}
             </div>
           ))}
         </nav>
-        <div className="p-2 border-t border-slate-100">
-          <div className="px-2 py-1.5 bg-[#0369a1] rounded text-[7px] font-bold text-white text-center">
-            Agendar
+        <div className="p-2 border-t border-pink-100">
+          <div className="px-2 py-1.5 bg-[#e83e8c] rounded text-[7px] font-bold text-white text-center">
+            WhatsApp
           </div>
         </div>
       </div>
       {/* Content */}
-      <div className="flex-1 flex flex-col overflow-hidden bg-[#f0f9ff]">
-        <div className="px-3 py-2 bg-white border-b border-slate-100 flex items-center justify-between">
-          <div className="text-[8px] text-[#0369a1] font-bold">Clareamento Dental</div>
-          <div className="text-[7px] text-slate-400">★★★★★ 4.9</div>
+      <div className="flex-1 flex flex-col overflow-hidden bg-gradient-to-br from-pink-50/50 to-white">
+        <div className="px-3 py-2 bg-white border-b border-pink-100 flex items-center justify-between">
+          <div className="text-[8px] text-[#e83e8c] font-bold">Perfumes — Destaques</div>
+          <div className="text-[7px] text-slate-400">Consultar Formas de Pagamento</div>
         </div>
         <div className="flex-1 p-3 overflow-hidden">
-          {/* Banner */}
-          <div className="rounded-xl overflow-hidden mb-2 h-16 relative"
-               style={{ background: 'linear-gradient(135deg, #0369a1, #0284c7)' }}>
-            <div className="absolute inset-0 flex items-center justify-between px-3">
-              <div>
-                <div className="text-[7px] text-blue-200 mb-0.5">Promoção de Outubro</div>
-                <div className="text-[10px] font-bold text-white">Clareamento</div>
-                <div className="text-[10px] font-bold text-blue-200">por R$ 349</div>
-              </div>
-              <div className="text-2xl">🦷</div>
-            </div>
-          </div>
-          {/* Cards */}
-          <div className="grid grid-cols-2 gap-1.5">
+          <div className="grid grid-cols-2 gap-2">
             {[
-              { icon: '⚡', name: 'LED 1h', price: 'R$ 349' },
-              { icon: '🌟', name: 'Caseiro', price: 'R$ 249' },
-              { icon: '💎', name: 'VIP Total', price: 'R$ 699' },
-              { icon: '✅', name: 'Manutenção', price: 'R$ 149' },
-            ].map((c) => (
-              <div key={c.name} className="p-1.5 bg-white rounded border border-slate-100 shadow-sm">
-                <div className="text-sm mb-0.5">{c.icon}</div>
-                <div className="text-[7px] text-slate-700 font-semibold">{c.name}</div>
-                <div className="text-[7px] text-[#0369a1] font-bold">{c.price}</div>
+              { name: 'Elegance Rose', price: 'R$ 189', icon: '🌹' },
+              { name: 'Floral Bliss', price: 'R$ 159', icon: '🌸' },
+              { name: 'Vanilla Dream', price: 'R$ 129', icon: '🍦' },
+              { name: 'Ocean Mist', price: 'R$ 149', icon: '🌊' },
+            ].map((item) => (
+              <div key={item.name} className="p-2 bg-white rounded-lg border border-pink-100 shadow-sm">
+                <div className="h-12 bg-gradient-to-br from-pink-100 to-pink-50 rounded mb-2 flex items-center justify-center text-2xl">
+                  {item.icon}
+                </div>
+                <div className="text-[8px] text-slate-700 font-semibold">{item.name}</div>
+                <div className="text-[8px] text-[#e83e8c] font-bold mb-1">{item.price}</div>
+                <div className="px-2 py-1 text-[7px] font-bold text-white text-center rounded"
+                     style={{ background: '#e83e8c' }}>
+                  Falar com vendedora
+                </div>
               </div>
             ))}
           </div>
@@ -225,59 +63,136 @@ function DentistaMockup() {
   );
 }
 
-function CatalogoMockup() {
+function AgropecuariaMockup() {
   return (
     <div className="w-full h-full flex flex-col bg-[#111] overflow-hidden">
       {/* Top nav */}
-      <nav className="px-3 py-2 bg-[#1a1a1a] border-b border-white/6 flex items-center justify-between">
+      <nav className="px-3 py-2 bg-[#001f5f] border-b border-white/6 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 rounded bg-[#f59e0b] flex items-center justify-center">
-            <span className="text-[7px] font-black text-black">P</span>
+          <div className="w-4 h-4 rounded bg-[#e8341a] flex items-center justify-center">
+            <span className="text-[7px] font-black text-white">P</span>
           </div>
-          <span className="text-[9px] font-black text-white">PRODUTEC</span>
+          <span className="text-[9px] font-black text-white">POUPAR</span>
         </div>
-        <div className="flex gap-3 text-[8px] text-slate-400">
-          <span>Catálogo</span><span>Sobre</span><span>Pedido</span>
+        <div className="flex gap-4 text-[8px] text-slate-200">
+          <span>Início</span><span>Agropecuária</span><span>Contato</span>
         </div>
-        <div className="px-2.5 py-1 text-[8px] font-bold text-black rounded"
-             style={{ background: '#f59e0b' }}>
-          Solicitar
+        <div className="px-3 py-1 text-[8px] font-bold text-white rounded"
+             style={{ background: '#28a745' }}>
+          Fale Conosco
         </div>
       </nav>
-      {/* Filters */}
-      <div className="px-3 py-1.5 bg-[#161616] border-b border-white/4 flex gap-1.5">
-        {['Todos', 'Eletrônicos', 'Mecânicos', 'Hidráulicos'].map((f, i) => (
-          <div key={f} className={`px-2 py-0.5 rounded text-[7px] font-semibold cursor-default ${
-            i === 0 ? 'bg-[#f59e0b] text-black' : 'bg-white/5 text-slate-400'
-          }`}>
-            {f}
+      {/* Hero */}
+      <div className="relative px-5 py-4 flex-shrink-0"
+           style={{ background: 'linear-gradient(135deg, #001f5f, #003366)' }}>
+        <div className="text-[8px] text-[#e8341a] mb-1 tracking-widest font-semibold">AGRO COMERCIAL</div>
+        <div className="font-bold text-sm text-white leading-tight mb-2">Temos tudo<br />que você precisa.</div>
+        <div className="flex gap-2">
+          <div className="px-2.5 py-1 text-[8px] font-bold text-white rounded"
+               style={{ background: '#28a745' }}>
+            Pedir pelo WhatsApp
           </div>
-        ))}
+          <div className="px-2.5 py-1 text-[8px] text-white rounded border border-white/50">
+            Ver catálogo
+          </div>
+        </div>
       </div>
-      {/* Product grid */}
-      <div className="flex-1 p-2.5 overflow-hidden">
+      {/* Stats */}
+      <div className="flex-1 p-3 overflow-hidden">
         <div className="grid grid-cols-3 gap-1.5">
-          {[
-            { name: 'Motor 3CV', code: 'MOT-302', status: 'Disponível', icon: '⚙️' },
-            { name: 'Bomba Hidráulica', code: 'BOM-115', status: 'Sob Consulta', icon: '🔧' },
-            { name: 'Painel Solar', code: 'SOL-440', status: 'Disponível', icon: '☀️' },
-            { name: 'Inversor 10kW', code: 'INV-210', status: 'Disponível', icon: '⚡' },
-            { name: 'Sensor Pressão', code: 'SEN-078', status: 'Estoque Baixo', icon: '📡' },
-            { name: 'Compressor AR', code: 'COM-550', status: 'Disponível', icon: '💨' },
-          ].map((p) => (
-            <div key={p.name} className="p-1.5 bg-[#1a1a1a] rounded border border-white/5">
-              <div className="h-8 bg-gradient-to-br from-zinc-800 to-zinc-700 rounded mb-1 flex items-center justify-center text-base">
-                {p.icon}
+          <div className="px-2.5 py-2 bg-[#001f5f] border border-[#003366]/15 rounded text-[8px] text-slate-300 flex flex-col items-center justify-center">
+            <div className="text-sm font-bold text-white">+1.500</div>
+            <div className="text-[7px] text-slate-400">PRODUTOS</div>
+          </div>
+          <div className="px-2.5 py-2 bg-[#001f5f] border border-[#003366]/15 rounded text-[8px] text-slate-300 flex flex-col items-center justify-center">
+            <div className="text-sm font-bold text-white">4</div>
+            <div className="text-[7px] text-slate-400">CATEGORIAS</div>
+          </div>
+          <div className="px-2.5 py-2 bg-[#001f5f] border border-[#003366]/15 rounded text-[8px] text-slate-300 flex flex-col items-center justify-center">
+            <div className="text-sm font-bold text-white">24h</div>
+            <div className="text-[7px] text-slate-400">ENTREGA</div>
+          </div>
+        </div>
+        {/* Categories */}
+        <div className="mt-3">
+          <div className="text-[8px] text-slate-400 font-semibold mb-2 tracking-wider">CATEGORIAS</div>
+          <div className="grid grid-cols-2 gap-1.5">
+            {[
+              { name: 'Sementes', icon: '🌱' },
+              { name: 'Fertilizantes', icon: '🧪' },
+              { name: 'Defensivos', icon: '🛡️' },
+              { name: 'Máquinas', icon: '🚜' },
+            ].map((cat) => (
+              <div key={cat.name} className="px-2.5 py-2 bg-[#001f5f] border border-[#003366]/15 rounded text-[8px] text-slate-300 flex items-center gap-1.5">
+                <span className="text-sm">{cat.icon}</span>
+                {cat.name}
               </div>
-              <div className="text-[7px] text-white font-medium leading-tight truncate">{p.name}</div>
-              <div className="text-[6px] text-slate-500 mb-0.5">{p.code}</div>
-              <div className="text-[6px]" style={{
-                color: p.status === 'Disponível' ? '#4ade80' : p.status === 'Estoque Baixo' ? '#f59e0b' : '#94a3b8'
-              }}>
-                {p.status}
-              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function CamarimMockup() {
+  return (
+    <div className="w-full h-full flex bg-[#0a0a0a] overflow-hidden">
+      {/* Sidebar */}
+      <div className="w-24 flex-shrink-0 bg-[#0d0d0d] border-r border-white/6 flex flex-col">
+        <div className="p-3 border-b border-white/6">
+          <div className="flex items-center gap-1.5 mb-1">
+            <span className="text-lg">👑</span>
+            <span className="text-[9px] font-black text-white tracking-wide">CAMARIM</span>
+          </div>
+          <div className="text-[7px] text-slate-500">STORE</div>
+        </div>
+        <nav className="flex-1 py-2">
+          {['🌸 Perfumes', '💧 Body Splash', '👗 Roupas', '💎 Acessórios', '🎁 Presentes'].map((item, i) => (
+            <div key={item} className={`px-3 py-1.5 text-[7px] cursor-default flex items-center gap-1.5 ${
+              i === 0 ? 'bg-[#FFD700]/10 text-[#FFD700] font-semibold border-r-2 border-[#FFD700]' : 'text-slate-400'
+            }`}>
+              {item}
             </div>
           ))}
+        </nav>
+        <div className="p-2 border-t border-white/6">
+          <div className="px-2 py-1.5 text-[7px] font-bold text-black text-center rounded"
+               style={{ background: '#FFD700' }}>
+            🛒 Carrinho
+          </div>
+        </div>
+      </div>
+      {/* Content */}
+      <div className="flex-1 flex flex-col overflow-hidden">
+        <div className="px-3 py-2 bg-[#0f0f0f] border-b border-white/6 flex items-center justify-between">
+          <div className="text-[8px] text-slate-300 font-semibold">Perfumes — Catálogo</div>
+          <div className="flex gap-1">
+            <div className="px-2 py-0.5 bg-[#FFD700]/10 border border-[#FFD700]/30 rounded text-[7px] text-[#FFD700]">Filtrar</div>
+          </div>
+        </div>
+        <div className="flex-1 p-2 overflow-hidden">
+          <div className="grid grid-cols-2 gap-1.5">
+            {[
+              { name: 'Elixir Royal', code: 'PER-001', price: 'R$ 189', icon: '🌸' },
+              { name: 'Gold Essence', code: 'PER-002', price: 'R$ 249', icon: '✨' },
+              { name: 'Midnight Rose', code: 'PER-003', price: 'R$ 159', icon: '🌹' },
+              { name: 'Ocean Breeze', code: 'PER-004', price: 'R$ 129', icon: '🌊' },
+            ].map((item) => (
+              <div key={item.name} className="p-1.5 bg-[#0f0f0f] rounded border border-white/5">
+                <div className="h-10 bg-gradient-to-br from-[#FFD700]/20 to-[#FFD700]/5 rounded mb-1 flex items-center justify-center text-lg">
+                  {item.icon}
+                </div>
+                <div className="text-[7px] text-white font-medium leading-tight">{item.name}</div>
+                <div className="text-[6px] text-slate-500 mb-0.5">{item.code}</div>
+                <div className="text-[7px] text-[#FFD700] font-bold">{item.price}</div>
+                <div className="mt-1 px-1.5 py-0.5 text-[6px] font-bold text-black text-center rounded"
+                     style={{ background: '#FFD700' }}>
+                  Tenho Interesse
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -312,66 +227,42 @@ function BrowserFrame({ children, url }: { children: React.ReactNode; url: strin
 /* ────────── Portfolio cards data ────────── */
 const portfolioItems = [
   {
-    id: 1,
-    name: 'Élite Moda',
-    segment: 'Moda & Fashion',
-    nav: 'Menu Superior',
-    tag: 'E-commerce',
-    tagColor: '#e8341a',
-    mockup: ModeStoreMockup,
-    desc: 'Loja virtual premium para moda feminina e masculina com experiência de compra sofisticada.',
-    url: 'elitemoda.com.br',
-  },
-  {
-    id: 2,
-    name: 'AgroMarket',
-    segment: 'Agropecuária',
+    id: 6,
+    name: 'Camarim Store',
+    segment: 'Moda & Acessórios',
     nav: 'Menu Lateral',
     tag: 'Catálogo',
-    tagColor: '#22c55e',
-    mockup: AgroMockup,
-    desc: 'Catálogo digital para insumos agrícolas com filtros avançados e pedido via WhatsApp.',
-    url: 'agromarket.agr.br',
+    tagColor: '#FFD700',
+    mockup: CamarimMockup,
+    desc: 'Loja virtual elegante com catálogo de perfumes e acessórios, design premium com detalhes dourados.',
+    url: 'camarimstore.com.br',
   },
   {
-    id: 3,
-    name: 'Silva & Associados',
-    segment: 'Advocacia',
+    id: 7,
+    name: 'Agropecuária',
+    segment: 'Agropecuária',
     nav: 'Menu Superior',
-    tag: 'Institucional',
-    tagColor: '#60a5fa',
-    mockup: AdvocaciaMockup,
-    desc: 'Site institucional elegante para escritório de advocacia transmitindo autoridade e credibilidade.',
-    url: 'silvaadvocacia.adv.br',
+    tag: 'Catálogo',
+    tagColor: '#001f5f',
+    mockup: AgropecuariaMockup,
+    desc: 'Catálogo agropecuário completo com mais de 1.500 produtos, categorias organizadas e pedido via WhatsApp.',
+    url: 'pouparagro.com.br',
   },
   {
-    id: 4,
-    name: 'Sorria Dental',
-    segment: 'Odontologia',
+    id: 8,
+    name: 'Produtos de Beleza',
+    segment: 'Perfumaria e Cosméticos',
     nav: 'Menu Lateral',
-    tag: 'Clínica',
-    tagColor: '#0369a1',
-    mockup: DentistaMockup,
-    desc: 'Site para clínica odontológica com agendamento online, serviços e promoções em destaque.',
-    url: 'sorriadental.com.br',
-  },
-  {
-    id: 5,
-    name: 'ProdutecBR',
-    segment: 'Indústria',
-    nav: 'Menu Superior',
-    tag: 'Catálogo B2B',
-    tagColor: '#f59e0b',
-    mockup: CatalogoMockup,
-    desc: 'Catálogo B2B para indústria com filtros por categoria, SKU e solicitação de cotação.',
-    url: 'produtecbr.ind.br',
+    tag: 'Catálogo',
+    tagColor: '#e83e8c',
+    mockup: ProdutosBelezaMockup,
+    desc: 'Catálogo de produtos de beleza com foco em perfumes, skincare e maquiagem, com navegação por categorias e contato direto com a vendedora.',
+    url: 'produtosdebeleza.com.br',
   },
 ];
 
 export default function Portfolio() {
   const ref = useRef<HTMLElement>(null);
-  const [filter, setFilter] = useState('Todos');
-  const filters = ['Todos', 'E-commerce', 'Catálogo', 'Institucional', 'Clínica'];
 
   useEffect(() => {
     const obs = new IntersectionObserver((entries) => {
@@ -386,9 +277,7 @@ export default function Portfolio() {
     return () => obs.disconnect();
   }, []);
 
-  const visible = filter === 'Todos'
-    ? portfolioItems
-    : portfolioItems.filter((p) => p.tag === filter);
+  const visible = portfolioItems;
 
   return (
     <section ref={ref} id="portfolio" className="relative py-28 overflow-hidden">
@@ -413,8 +302,8 @@ export default function Portfolio() {
             Cada projeto é único. Veja como criamos experiências digitais para diferentes segmentos.
           </p>
 
-          {/* Filter tabs */}
-          <div className="animate-in flex flex-wrap justify-center gap-2">
+          {/* Filter tabs - hidden */}
+          {/* <div className="animate-in flex flex-wrap justify-center gap-2">
             {filters.map((f) => (
               <button key={f}
                       onClick={() => setFilter(f)}
@@ -427,7 +316,7 @@ export default function Portfolio() {
                 {f}
               </button>
             ))}
-          </div>
+          </div> */}
         </div>
 
         <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">

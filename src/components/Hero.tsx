@@ -6,8 +6,8 @@ const orbitItems = [
   { label: 'Landing Page', angle: 180, radius: 0, ring: 1 },
   { label: 'Institucional', angle: 60, radius: 0, ring: 2 },
   { label: 'Catálogo', angle: 240, radius: 0, ring: 2 },
-  { label: 'Advocacia', angle: 120, radius: 0, ring: 3 },
-  { label: 'Saúde', angle: 300, radius: 0, ring: 3 },
+  { label: 'Alta qualidade', angle: 120, radius: 0, ring: 3 },
+  { label: 'Rapidez na entrega', angle: 300, radius: 0, ring: 3 },
 ];
 
 const ringConfig = [
@@ -215,20 +215,20 @@ export default function Hero() {
             </p>
 
             <div className="animate-in stagger-3 flex flex-col sm:flex-row gap-4 mb-12">
-              <button className="group flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl font-bold text-[#080808] text-sm relative overflow-hidden"
-                      style={{
-                        background: 'linear-gradient(135deg, #00e5ff 0%, #00b4d8 100%)',
-                        boxShadow: '0 0 30px rgba(0,229,255,0.35)',
-                      }}>
+              <a href="#portfolio" className="group flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl font-bold text-[#080808] text-sm relative overflow-hidden"
+                 style={{
+                   background: 'linear-gradient(135deg, #00e5ff 0%, #00b4d8 100%)',
+                   boxShadow: '0 0 30px rgba(0,229,255,0.35)',
+                 }}>
                 <span className="relative z-10">Ver Portfólio</span>
                 <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />
                 <div className="absolute inset-0 shimmer-btn" />
-              </button>
+              </a>
 
-              <button className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-sm border text-white transition-all duration-200 hover:border-[#00e5ff]/40 hover:bg-[#00e5ff]/3"
-                      style={{ borderColor: 'rgba(255,255,255,0.1)' }}>
+              <a href="#contato" className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-sm border text-white transition-all duration-200 hover:border-[#00e5ff]/40 hover:bg-[#00e5ff]/3"
+                 style={{ borderColor: 'rgba(255,255,255,0.1)' }}>
                 Falar com especialista
-              </button>
+              </a>
             </div>
 
             {/* Stats row */}

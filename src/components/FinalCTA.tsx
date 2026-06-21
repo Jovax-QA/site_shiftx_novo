@@ -19,7 +19,7 @@ export default function FinalCTA() {
   }, []);
 
   return (
-    <section ref={ref} className="relative pt-28 pb-16 overflow-hidden">
+    <section id="contato" ref={ref} className="relative pt-28 pb-16 overflow-hidden">
       <div className="absolute inset-0 bg-[#080808]" />
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#e8341a]/25 to-transparent" />
 
@@ -65,7 +65,10 @@ export default function FinalCTA() {
 
         {/* Main CTA */}
         <div className="animate-in mb-10">
-          <button
+          <a
+            href="https://wa.me/554898026299"
+            target="_blank"
+            rel="noopener noreferrer"
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
             className="group relative inline-flex items-center gap-3 px-12 py-5 rounded-2xl font-bold text-lg text-[#080808] overflow-hidden transition-all duration-300"
@@ -81,7 +84,7 @@ export default function FinalCTA() {
             <span>Falar no WhatsApp agora</span>
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             <div className="absolute inset-0 shimmer-btn" />
-          </button>
+          </a>
           <p className="text-slate-600 text-xs mt-3">
             Resposta em menos de 1 hora no horário comercial
           </p>
@@ -94,10 +97,12 @@ export default function FinalCTA() {
             <Mail className="w-4 h-4 text-[#00e5ff]" />
             contato@shiftx.com.br
           </a>
-          <a href="#"
+          <a href="https://wa.me/554898026299"
+             target="_blank"
+             rel="noopener noreferrer"
              className="flex items-center gap-2.5 px-5 py-3 rounded-xl text-sm font-medium text-slate-400 glass card-hover">
             <Phone className="w-4 h-4 text-[#e8341a]" />
-            (11) 99999-0000
+            (48) 99802-6299
           </a>
         </div>
 
