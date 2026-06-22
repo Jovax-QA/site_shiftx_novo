@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { Globe, ShoppingBag, BookOpen, Smartphone, Zap } from 'lucide-react';
+import { Globe, ShoppingBag, BookOpen, Smartphone, Zap, Target, Search } from 'lucide-react';
 
 const services = [
   {
@@ -36,6 +36,20 @@ const services = [
     desc: 'Do logo ao site, criamos uma presença digital coesa que fortalece sua marca e diferencia dos concorrentes.',
     color: '#f59e0b',
     tags: ['Branding', 'Logo', 'Manual'],
+  },
+  {
+    icon: Target,
+    title: 'Gestão de Tráfego Pago',
+    desc: 'Campanhas otimizadas em Google Ads e Meta Ads para atrair clientes qualificados e maximizar seu ROI.',
+    color: '#f97316',
+    tags: ['Google Ads', 'Meta Ads', 'ROI Otimizado'],
+  },
+  {
+    icon: Search,
+    title: 'Gestão de Tráfego Orgânico',
+    desc: 'Estratégias de SEO e conteúdo para posicionar seu site nos primeiros resultados do Google e atrair clientes gratuitamente.',
+    color: '#f083e1',
+    tags: ['SEO Técnico', 'Conteúdo', 'Ranking'],
   },
 ];
 
