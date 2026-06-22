@@ -6,8 +6,8 @@ const orbitItems = [
   { label: 'Landing Page', angle: 180, radius: 0, ring: 1 },
   { label: 'Institucional', angle: 60, radius: 0, ring: 2 },
   { label: 'Catálogo', angle: 240, radius: 0, ring: 2 },
-  { label: 'Alta qualidade', angle: 120, radius: 0, ring: 3 },
-  { label: 'Rapidez na entrega', angle: 300, radius: 0, ring: 3 },
+  { label: 'Gestão de tráfego pago', angle: 120, radius: 0, ring: 3 },
+  { label: 'Gestão de tráfego orgânico', angle: 300, radius: 0, ring: 3 },
 ];
 
 const ringConfig = [
@@ -199,7 +199,7 @@ export default function Hero() {
             </div>
 
             <h1 className="animate-in stagger-1 font-display font-black text-4xl md:text-5xl xl:text-[3.5rem] leading-[1.04] text-white mb-5">
-              Alavance suas{' '}
+              Alavanque suas{' '}
               <span className="text-gradient-cyan glow-text-cyan">vendas</span>{' '}
               com uma presença digital que{' '}
               <span className="text-gradient-red animate-glitch">domina</span>{' '}
