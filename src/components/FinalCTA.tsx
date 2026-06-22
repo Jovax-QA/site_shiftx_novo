@@ -92,10 +92,10 @@ export default function FinalCTA() {
 
         {/* Alternative contacts */}
         <div className="animate-in flex flex-wrap justify-center gap-4 mb-16">
-          <a href="#"
+          <a href="mailto:contato.shiftx@gmail.com"
              className="flex items-center gap-2.5 px-5 py-3 rounded-xl text-sm font-medium text-slate-400 glass card-hover">
             <Mail className="w-4 h-4 text-[#00e5ff]" />
-            contato@shiftx.com.br
+            contato.shiftx@gmail.com
           </a>
           <a href="https://wa.me/554898026299"
              target="_blank"
